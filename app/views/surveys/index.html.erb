@@ -1,2 +1,10 @@
-<h1>Surveys#index</h1>
-<p>Find me in app/views/surveys/index.html.erb</p>
+<h1>Surveys</h1>
+<%= link_to 'New Survey', new_survey_path, class: 'btn btn-primary' %>
+
+<ul>
+  <% @surveys.each do |survey| %>
+    <li>
+      <%= link_to survey.question, survey_path(survey) %>
+    </li>
+  <% end %>
+</ul>

@@ -1,2 +1,4 @@
-<h1>Surveys#create</h1>
-<p>Find me in app/views/surveys/create.html.erb</p>
+<h1>Survey Created!</h1>
+<p>Your survey "<%= @survey.question %>" was successfully created.</p>
+<%= link_to 'View Survey', survey_path(@survey) %>
+<%= link_to 'Back to Surveys', surveys_path %>

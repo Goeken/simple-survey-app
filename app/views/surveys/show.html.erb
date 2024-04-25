@@ -1,2 +1,19 @@
-<h1>Surveys#show</h1>
-<p>Find me in app/views/surveys/show.html.erb</p>
+<h1><%= @survey.question %></h1>
+
+<%= form_with(model: [@survey, Response.new], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :answer, 'Yes' %>
+    <%= form.radio_button :answer, true %>
+    <%= form.label :answer, 'No' %>
+    <%= form.radio_button :answer, false %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Submit Response', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<h2>Survey Responses</h2>
+<ul>
+  <li>Yes: <%= @survey.responses.where(answer: true).count %></li>
+  <li>No: <%= @survey.responses.where(answer: false).count %></li>
+</ul>
