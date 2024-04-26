@@ -11,9 +11,9 @@
           </h5>
         </div>
         <div class="card-footer bg-transparent text-center">
-          <span class="text-white">Yes: <%= @survey.responses.where(answer: true).count %></span>
-          <span class="mx-2">|</span>
-          <span class="text-white">No: <%= @survey.responses.where(answer: false).count %></span>
+            <span class="text-white">Yes: <%= @yes_count %></span>
+            <span class="mx-2">|</span>
+            <span class="text-white">No: <%= @no_count %></span>
         </div>
       </div>
     </div>
