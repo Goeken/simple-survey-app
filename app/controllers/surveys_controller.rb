@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   def index
-    @surveys = Survey.includes(:responses).all
+    @surveys = Survey.includes(:responses).order(created_at: :desc)
   end
 
   def new
@@ -9,7 +9,11 @@ class SurveysController < ApplicationController
 
   def show
     @survey = Survey.find(params[:id])
-    @response = @survey.responses.new
+    if @survey
+      @response = @survey.responses.new
+    else
+      redirect_to surveys_path, alert: 'Survey not found.'
+    end
   end
 
   def create
