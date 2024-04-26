@@ -1,19 +1,41 @@
-<h1><%= @survey.question %></h1>
+<div class="container mt-5">
 
-<%= form_with(model: [@survey, Response.new], local: true) do |form| %>
-  <div class="field">
-    <%= form.label :answer, 'Yes' %>
-    <%= form.radio_button :answer, true %>
-    <%= form.label :answer, 'No' %>
-    <%= form.radio_button :answer, false %>
-  </div>
-  <div class="actions">
-    <%= form.submit 'Submit Response', class: 'btn btn-primary' %>
-  </div>
-<% end %>
+  <%= render 'back_button' %>
 
-<h2>Survey Responses</h2>
-<ul>
-  <li>Yes: <%= @survey.responses.where(answer: true).count %></li>
-  <li>No: <%= @survey.responses.where(answer: false).count %></li>
-</ul>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+      <div class="card dark-green-card d-flex flex-column">
+        <div class="card-body flex-grow-1">
+          <h5 class="card-title text-center text-white">
+            <%= @survey.question %>
+          </h5>
+        </div>
+        <div class="card-footer bg-transparent text-center">
+          <span class="text-white">Yes: <%= @survey.responses.where(answer: true).count %></span>
+          <span class="mx-2">|</span>
+          <span class="text-white">No: <%= @survey.responses.where(answer: false).count %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <%= form_with(model: [@survey, Response.new], local: true) do |form| %>
+            <div class="form-group d-flex justify-content-center my-3">
+                <label class="btn btn-outline-success mr-2 answer-btn-space">
+                <%= form.radio_button :answer, true, class: "form-check-input" %>
+                Yes
+                </label>
+                <label class="btn btn-outline-danger ml-2">
+                <%= form.radio_button :answer, false, class: "form-check-input" %>
+                No
+                </label>
+            </div>
+            <div class="form-group text-center">
+                <%= form.submit 'Submit Response', class: 'btn dark-blue-button text-white' %>
+            </div>
+            <% end %>
+        </div>
+    </div>
+</div>

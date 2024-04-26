@@ -1,0 +1,43 @@
+.big-bold-title {
+    font-size: 45px;
+    font-weight: bold;
+  }
+  
+  .dark-blue-button {
+    background-color: #003366;
+    border-color: #002244;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+  
+  .dark-blue-button:hover {
+    background-color: rgba(0, 51, 102, 0.8);
+    border-color: #001122;
+  }
+  
+  .mb-extra {
+    margin-bottom: 30px;
+  }
+  
+  .dark-green-card {
+    background-color: #004225;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+  }
+  
+  .dark-green-card .card-body {
+    flex-grow: 1;
+  }
+  
+  .dark-green-card .card-footer {
+    padding: 12px 8px;
+    font-size: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .answer-btn-space {
+    margin-right: 8px;
+  }
+  

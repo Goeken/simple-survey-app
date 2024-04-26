@@ -1,23 +1,27 @@
-<h1>Create New Survey</h1>
+<div class="container mt-5">
+  <%= render 'back_button' %>
 
-<%= form_with(model: @survey, local: true) do |form| %>
-  <% if @survey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@survey.errors.count, "error") %> prohibited this survey from being saved:</h2>
-      <ul>
-        <% @survey.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <h1>Create New Survey</h1>
+        </div>
+        <div class="card-body">
+          <%= form_with(model: @survey, local: true) do |form| %>
+            <%= render 'shared/error_messages', object: @survey %>
+
+            <div class="form-group">
+              <%= form.label :question, class: 'form-label' %>
+              <%= form.text_field :question, id: :survey_question, class: 'form-control', maxlength: '150' %>
+            </div>
+
+            <div class="form-group text-center mt-3">
+              <%= form.submit 'Save', class: 'btn btn-success btn-lg px-5 py-2' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :question %>
-    <%= form.text_field :question, id: :survey_question %>
   </div>
-
-  <div class="actions">
-    <%= form.submit 'Save', class: 'btn btn-success' %>
-  </div>
-<% end %>
+</div>
