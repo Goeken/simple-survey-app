@@ -6,6 +6,6 @@ RSpec.describe Response, type: :model do
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:answer) }
+    it { should validate_inclusion_of(:answer).in_array([true, false]) }
   end
 end
