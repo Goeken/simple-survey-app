@@ -1,9 +1,6 @@
 class SurveysController < ApplicationController
   def index
-    @surveys = Survey.includes(:responses).order(created_at: :desc)
-                     .select('surveys.*, COUNT(CASE WHEN responses.answer = true THEN 1 END) AS yes_count, COUNT(CASE WHEN responses.answer = false THEN 1 END) AS no_count')
-                     .left_joins(:responses)
-                     .group('surveys.id')
+    @surveys = Survey.with_response_data.order(created_at: :desc)
   end
 
   def new

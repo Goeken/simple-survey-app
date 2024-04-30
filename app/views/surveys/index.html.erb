@@ -16,14 +16,14 @@
               <%= link_to survey.question, survey_path(survey), class: 'stretched-link text-white text-decoration-none' %>
             </h5>
           </div>
-
-        <div class="card-footer bg-transparent text-center">
-            <span class="text-white">Yes: <%= survey.yes_count %></span>
+          <div class="card-footer bg-transparent text-center">
+            <span class="text-white">Yes: <%= '%.1f' % survey.yes_percentage %>%</span>
             <span class="mx-2">|</span>
-            <span class="text-white">No: <%= survey.no_count %></span>
-        </div>
+            <span class="text-white">No: <%= '%.1f' % survey.no_percentage %>%</span>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
